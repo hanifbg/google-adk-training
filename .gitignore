@@ -1,0 +1,5 @@
+.env
+.venv
+.adk
+.serena
+__pycache__
