@@ -19,6 +19,18 @@ This workspace includes two sub-agent projects demonstrating different ways to d
 - **Goal**: A helpful assistant for various tasks.
 - **Model**: `gemini-2.5-flash`
 
+### 3. 🧠 Strategic Problem Solver (`problem_solver_gemini`)
+- **Type**: Python-defined agent with planning.
+- **File**: `problem_solver_gemini/agent.py`
+- **Goal**: Solves complex problems using a step-by-step reasoning strategy (`BuiltInPlanner`).
+- **Model**: `gemini-2.5-flash`
+
+### 4. 🌐 Custom Provider Agent (`problem_solver_other`)
+- **Type**: Python-defined agent with planning.
+- **File**: `problem_solver_other/agent.py`
+- **Goal**: Demonstrates calling non-Gemini models via custom OpenAI-compatible endpoints (`LiteLlm`).
+- **Model**: `openai/seed-2-0-lite-free` (via Sumopod)
+
 ---
 
 ## 🛠️ Setup Instructions
@@ -41,6 +53,27 @@ Copy the `.env.template` (if provided) or create a `.env` file in each agent's d
 ```bash
 GOOGLE_API_KEY=YOUR_API_KEY_HERE
 ```
+
+#### Custom Providers (e.g., Sumopod, vLLM, Groq)
+For agents using `LiteLlm` (like `problem_solver_other`), configure your `.env` as follows:
+```bash
+BASE_API=https://ai.example.com/v1
+API_KEY=YOUR_CUSTOM_KEY
+```
+> [!TIP]
+> When using a custom `BASE_API`, prepend the provider prefix to your model name (e.g., `model="openai/my-model-name"`) to ensure LiteLLM routes the request correctly.
+
+#### Common LiteLLM Providers
+| Provider | Model Prefix | Typical `BASE_API` |
+| :--- | :--- | :--- |
+| **OpenAI Compatible** | `openai/` | `https://api.example.com/v1` |
+| **Anthropic** | `anthropic/` | `https://api.anthropic.com` |
+| **Ollama** | `ollama/` | `http://localhost:11434` |
+| **Anyscale** | `anyscale/` | `https://api.endpoints.anyscale.com/v1` |
+| **DeepSeek** | `deepseek/` | `https://api.deepseek.com` |
+| **Groq** | `groq/` | `https://api.groq.com/openai/v1` |
+| **Mistral** | `mistral/` | `https://api.mistral.ai/v1` |
+| **Perplexity** | `perplexity/` | `https://api.perplexity.ai` |
 
 ---
 
