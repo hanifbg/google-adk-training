@@ -91,6 +91,15 @@ adk run my_first_agent
 adk run my_agent
 ```
 
+### Using Web Interface
+Launch the ADK Web UI to interact with your agents through a browser:
+```bash
+adk web
+```
+> [!NOTE]
+> Once the server starts, you can select any existing agent in the workspace (Python or YAML) from the dropdown menu to begin a session.
+> THIS IS FOR DEVELOPMENT ONLY 
+
 ---
 
 ## 📚 Resources
