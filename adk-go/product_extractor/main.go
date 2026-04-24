@@ -81,7 +81,7 @@ Rules:
 			},
 			Required: []string{"product_name", "price", "storage", "color"},
 		},
-		OutputKey:    "extracted_product",
+		OutputKey: "extracted_product",
 	}
 
 	agentInstance, err := llmagent.New(llmConfig)
